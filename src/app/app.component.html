@@ -1,16 +1,6 @@
 <div class="fluid-container">
   <app-navbar></app-navbar>
-  <app-hero header="{{header}}" subHeader="{{subHeader}}"></app-hero>
-  <div class="container">
-    <div class="form-group">
-        <label>Header</label>
-        <input type="text" class="form-control" [(ngModel)]="header">
-    </div>
-    <div class="form-group">
-      <label>Subheader</label>
-      <input type="text" class="form-control" [(ngModel)]="subHeader">
-    </div>
-  </div>
+  <router-outlet></router-outlet>
   <app-footer class="footer"></app-footer>
   <!-- <app-input-field [(ngModel)]="header"></app-input-field> -->
 </div>
