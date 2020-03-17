@@ -1,0 +1,45 @@
+<div class="col-xs-6">
+  <div class="form-group">
+    <label class="control-label">Select item</label>
+    <select class="form-control" [(ngModel)]="selectedProd">
+      <option [ngValue]="product" *ngFor="let product of products">{{product.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <input type="number" class="input" [(ngModel)]="qty">
+  </div>
+  <button class="btn btn-default" (click)="addItem(selectedProd, qty)" [disabled]="qty <= 0">Add item</button>
+</div>
+<div class="col-xs-6">
+  <div class="col-xs-12">
+    <img class="img-responsive" src={{selectedProd.imgPath}}>
+    <p>Price: {{selectedProd.price}}</p>
+    <p>Description: {{selectedProd.description}}</p>
+    <p>Unit: {{selectedProd.unit}}</p>
+  </div>
+</div>
+<div class="col-xs-12">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <td>Total</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items; let i = index">
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.qty}}</td>
+        <td>{{item.total}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="removeItem(i)">Remove item</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Total: {{totalItems}}</p>
+</div>

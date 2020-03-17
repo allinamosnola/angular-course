@@ -12,6 +12,8 @@ import { SimpleButtonComponent } from './simple-button/simple-button.component';
 import { CartComponent } from './cart/cart.component';
 import { TestComponent } from './test/test.component';
 import { HomeComponent } from './home/home.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { HomeComponent } from './home/home.component';
     CartComponent,
     TestComponent,
     HomeComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,

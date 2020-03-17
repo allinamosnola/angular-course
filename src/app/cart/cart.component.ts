@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CartComponent implements OnInit {
 
+  items;
   constructor(
     private route: ActivatedRoute
   ) { }
