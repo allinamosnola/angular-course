@@ -14,12 +14,15 @@ export class ProductListComponent {
   items: Array<any> = [];
 
   addItem(prod: Product, qty: number) {
-    let item = this.items.find(listItem => listItem.id == prod.id);
-    if (item === undefined) {
-      this.items.push({price: prod.price, id: prod.id, qty: qty, total: qty * prod.price, name: prod.name})
-    } else {
-      item.cantidad = item.qty + qty;
+    let item = this.items.find(listItem => {
+      console.log('listItem: ', listItem.id, ' prod: ', prod.id)
+      return listItem.id == prod.id
+    });
+    if (item !== undefined) {
+      item.qty = item.qty + qty;
       item.total = item.qty * item.price;
+    } else {
+      this.items.push({price: prod.price, id: prod.id, qty: qty, total: qty * prod.price, name: prod.name})
     }
     console.log('item added: ', item, this.items)
   }
@@ -33,15 +36,6 @@ export class ProductListComponent {
     return this.items.reduce(function (prev, curr) {
       return (prev + curr.total)
     }, 0)
-  }
-
-
-  share() {
-    window.alert('The product has been shared!');
-  }
-
-  onNotify() {
-    window.alert('You will be notified when the product goes on sale');
   }
 
 }
