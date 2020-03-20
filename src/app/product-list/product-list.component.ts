@@ -25,9 +25,12 @@ export class ProductListComponent {
       this.items.push({price: prod.price, id: prod.id, qty: qty, total: qty * prod.price, name: prod.name})
     }
     console.log('item added: ', item, this.items)
+    window.alert(qty + ' ' + prod.name + ' added to your cart');
   }
 
   removeItem(index: number) {
+    console.log('before item removed: ', index, this.items)
+    window.alert(this.items[index].name + ' removed from your cart');
     this.items.splice(index, 1)
     console.log('item removed: ', index, this.items)
   }
