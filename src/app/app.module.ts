@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, ActivatedRoute } from '@angular/router'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -13,6 +14,8 @@ import { CartComponent } from './cart/cart.component';
 import { TestComponent } from './test/test.component';
 import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { DataServicesComponent } from './data-services/data-services.component';
+import { TradesService } from './trades.service'
 
 @NgModule({
   declarations: [
@@ -26,17 +29,20 @@ import { ProductListComponent } from './product-list/product-list.component';
     TestComponent,
     HomeComponent,
     ProductListComponent,
+    DataServicesComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'test', component: TestComponent },
       { path: 'cart', component: CartComponent },
+      { path: 'api', component: DataServicesComponent },
     ])
   ],
-  providers: [],
+  providers: [TradesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
