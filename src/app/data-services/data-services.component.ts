@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TradesService } from '../trades.service';
+import { interval } from 'rxjs'
 
 @Component({
   selector: 'app-data-services',
@@ -14,7 +15,11 @@ export class DataServicesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.trades = this.tradesService.getTrades()
+    const sec = interval(30000)
+
+    sec.subscribe(n => 
+      this.trades = this.tradesService.getTrades()  
+    )
   }
 
 }

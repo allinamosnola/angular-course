@@ -16,7 +16,7 @@ export class TradesService{
 
   async getTrades() {
 
-    return this.trades = await this.http.get('https://api.bitso.com/v3/trades/', { params: { book: "btc_mxn" }})
+    return this.trades = await this.http.get('https://api.bitso.com/v3/trades/', { params: { book: "btc_mxn", limit: "10" }})
       .map(
         (data) => {
           let items = data.payload ? data.payload : null
