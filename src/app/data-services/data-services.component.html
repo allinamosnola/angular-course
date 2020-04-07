@@ -1,10 +1,21 @@
 <div class="fluid-container">
   <app-hero header="Angular course" subHeader="BTC - MXN trades"></app-hero>
-  <div [ngClass]="{'col-md-12 bg-success sell': trade.maker_side == 'sell',
-    'col-xs-12 bg-danger buy': trade.maker_side == 'buy'}"
-    *ngFor="let trade of trades">
-    <span class="col-xs-4">Date: {{trade.created_at | date : 'medium'}}</span>
-    <span class="col-xs-4">Amount: {{trade.amount}} </span>
-    <span class="col-xs-4">Price: {{trade.price}} </span>
-  </div>
+  <table class="table table-bodered">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [ngClass]="{'success sell': trade.maker_side == 'sell',
+      'danger buy': trade.maker_side == 'buy'}"
+      *ngFor="let trade of trades">
+        <td> {{trade.created_at | date : 'medium'}}</td>
+        <td>{{trade.amount}} </td>
+        <td> {{trade.price | currency }} </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
