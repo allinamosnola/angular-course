@@ -11,7 +11,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
       'enterAnimation', [
         transition(':enter', [
           style({transform: 'translateX(100%)', opacity: 0}),
-          animate('500ms', style({transform: 'translateX(0)', opacity: 1, 'overflow-x': 'hidden'}))
+          animate('2000ms', style({transform: 'translateX(0)', opacity: 1, 'overflow-x': 'hidden'}))
         ]),
         transition(':leave', [
           style({transform: 'translateX(0)', opacity: 1}),
