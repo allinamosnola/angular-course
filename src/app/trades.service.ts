@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map'
+import { Observable } from 'rxjs';
 
 {
   providedIn: 'root'
@@ -14,15 +15,14 @@ export class TradesService{
   items = [];
   trades = {};
 
-  async getTrades() {
+  getTrades(): Observable<any> {
 
-    return this.trades = await this.http.get('https://api.bitso.com/v3/trades/', { params: { book: "btc_mxn", limit: "10" }})
-      .map(
-        (data) => {
-          let items = data.payload ? data.payload : null
-          console.log('data: ', items)
-          return items;
-        }).toPromise()
+    return this.http.get('https://api.bitso.com/v3/trades/', { params: { book: "btc_mxn", limit: "10" }})
+      // .map(
+      //   (data) => {
+      //     console.log('data: ', data)
+      //     return data;
+      //   })
     
   }
 

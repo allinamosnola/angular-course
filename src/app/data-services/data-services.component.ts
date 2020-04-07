@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TradesService } from '../trades.service';
 import { interval } from 'rxjs'
+import 'rxjs/add/operator/map'
 
 @Component({
   selector: 'app-data-services',
@@ -16,9 +17,24 @@ export class DataServicesComponent implements OnInit {
 
   ngOnInit() {
     const sec = interval(30000)
-
+    this.getTradeService()
     sec.subscribe(n => 
-      this.trades = this.tradesService.getTrades()  
+      this.getTradeService() 
+    )
+  }
+
+  getTradeService() {
+    this.trades = []
+    this.tradesService.getTrades().subscribe(
+      data => {
+        for (let key in data) {
+          if (key == 'payload') {
+            data[key].map(e => {
+              this.trades.push(e)
+            })
+          }
+        }
+      }
     )
   }
 
