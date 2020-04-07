@@ -1,6 +1,6 @@
 <div class="fluid-container">
   <app-hero header="Angular course" subHeader="BTC - MXN trades"></app-hero>
-  <table class="table table-bodered">
+  <table class="table table-bodered" >
     <thead>
       <tr>
         <th>Date</th>
@@ -9,11 +9,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr [ngClass]="{'success sell': trade.maker_side == 'sell',
+      <tr [@enterAnimation] [ngClass]="{'success sell': trade.maker_side == 'sell',
       'danger buy': trade.maker_side == 'buy'}"
       *ngFor="let trade of trades">
         <td> {{trade.created_at | date : 'medium'}}</td>
-        <td>{{trade.amount}} </td>
+        <td> {{trade.amount}} </td>
         <td> {{trade.price | currency }} </td>
       </tr>
     </tbody>
