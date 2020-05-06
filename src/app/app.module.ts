@@ -16,7 +16,8 @@ import { TestComponent } from './test/test.component';
 import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { DataServicesComponent } from './data-services/data-services.component';
-import { TradesService } from './trades.service'
+import { TradesService } from './trades.service';
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TradesService } from './trades.service'
     HomeComponent,
     ProductListComponent,
     DataServicesComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import { TradesService } from './trades.service'
       { path: 'test', component: TestComponent },
       { path: 'cart', component: CartComponent },
       { path: 'api', component: DataServicesComponent },
+      { path: 'login', component: LoginComponent },
     ])
   ],
   providers: [TradesService],

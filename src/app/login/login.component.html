@@ -1,0 +1,25 @@
+<div class="fluid-container">
+  <app-hero header="Angular course" subHeader="Login"></app-hero>
+  <div *ngIf="authResp.code !== 0">
+    <div class="form-group">
+      <label class="control-label">Username</label>
+      <input type="text" class="input" [(ngModel)]="user">
+    </div>
+    <div class="form-group">
+      <label class="control-label">Password</label>
+      <input type="password" class="input" [(ngModel)]="password">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-default" (click)="validateUser(user, password)">Login</button>
+    </div>
+  </div>
+  <div>
+    <div *ngIf="userResp && authResp.code === 0">
+      Welcome, {{userResp.userData.firstName}}!
+    </div>
+    <div *ngIf="authResp.code !== 0">
+      {{authResp.msg}}
+    </div>
+  </div>
+</div>
+
