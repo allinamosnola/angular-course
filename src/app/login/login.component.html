@@ -14,11 +14,11 @@
     </div>
   </div>
   <div>
-    <div *ngIf="userResp && authResp.code === 0">
+    <div *ngIf="userResp && authResp.code === 200 ">
       Welcome, {{userResp.userData.firstName}}!
     </div>
-    <div *ngIf="authResp.code !== 0">
-      {{authResp.msg}}
+    <div *ngIf="error.code === 401">
+      {{error.msg}}
     </div>
   </div>
 </div>
