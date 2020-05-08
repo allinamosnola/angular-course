@@ -32,16 +32,18 @@ export class LoginComponent implements OnInit {
         this.authResp = data
         console.log('authResp: ', this.authResp)
         if (data.token) {
+          this.error.msg = ''
           localStorage.setItem('token', data.token);
           this.getUserData(data.token)
-          this.router.navigate(['/']);
         }
       },
       err => {
         if (err instanceof HttpErrorResponse) {
           console.log("err: ", err)
+          this.userResp = {}
           if (err.status === 401) {
-              this.error = err.error;
+            this.error = err.error;
+            console.log('error: ', this.error)
           }
         }
       }
@@ -54,6 +56,7 @@ export class LoginComponent implements OnInit {
         this.userResp = data
       }
     )
+    // this.router.navigate(['/']);
   }
 
 }

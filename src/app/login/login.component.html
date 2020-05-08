@@ -20,8 +20,26 @@
         </div>
       </div>
       <div>
-        <div *ngIf="userResp && authResp.code === 200 ">
-          Welcome, {{userResp.userData.firstName}}!
+        <div *ngIf="authResp.code === 200 ">
+          <div class="col-sm-10">
+            Welcome, {{userResp.userData.firstName}}!
+            <h3>This is your information</h3>
+            <div class="row">
+              Firstname: <span>{{userResp.userData.firstName}}</span>
+            </div>
+            <div class="row">
+              Lastname: <span>{{userResp.userData.lastName}}</span>
+            </div>
+            <div class="row">
+              Age: <span>{{userResp.userData.age}}</span>
+            </div>
+            <div class="row">
+              Email: <span>{{userResp.userData.email}}</span>
+            </div>
+            <div class="row">
+              Company: <span>{{userResp.userData.company}}</span>
+            </div>  
+          </div>
         </div>
         <div *ngIf="error.code === 401">
           {{error.msg}}
